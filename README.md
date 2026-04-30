@@ -36,3 +36,57 @@ graph TD
     S --- UC7
 
 ```
+```mermaid
+classDiagram
+    direction BT
+    class Tecnico {
+        +int tecnicoID
+        +string nombreCompleto
+        +string especialidad
+        +decimal latitud
+        +decimal longitud
+        +bit activo
+        +actualizarUbicacion(lat, lng)
+        +obtenerPerfilPublico()
+    }
+
+    class Cliente {
+        +int clienteID
+        +string nombreCompleto
+        +string telefono
+        +buscarCercanos(radioKm)
+        +calificarTecnico(trabajoID, puntos)
+    }
+
+    class Trabajo {
+        +int trabajoID
+        +date fecha
+        +string estado
+        +finalizarTrabajo()
+    }
+
+    class Calificacion {
+        +int calificacionID
+        +int puntaje
+        +string comentario
+        +notificarTriggerAuditoria()
+    }
+
+    class LogAuditoria {
+        +int logID
+        +datetime fechaAccion
+        +string cambioAnterior
+        +string cambioNuevo
+    }
+
+    %% Relaciones
+    Tecnico "1" -- "*" Trabajo : realiza
+    Cliente "1" -- "*" Trabajo : solicita
+    Trabajo "1" -- "1" Calificacion : genera
+    Calificacion ..> LogAuditoria : activa trigger
+
+
+
+
+
+```
