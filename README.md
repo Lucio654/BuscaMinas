@@ -53,8 +53,8 @@ classDiagram
     Calificacion ..> LogAuditoria : activa trigger
 
     %% Conexiones invisibles para forzar el orden si GitHub lo desordena
-    Tecnico ~~~ Calificacion
-    Cliente ~~~ Calificacion
+    Tecnico --> Calificacion
+    Cliente --> Calificacion
 
 
 ```
