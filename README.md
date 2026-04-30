@@ -35,8 +35,7 @@ graph TD
     UC6 -.->|Dispara| UC7
     S --- UC7
 
-```
-```mermaid
+
 classDiagram
     direction BT
     class Tecnico {
