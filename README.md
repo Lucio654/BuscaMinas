@@ -1,4 +1,5 @@
-mermaid.
+```mermaid
+
 graph TD
     %% Actores
     T[Técnico]
@@ -43,3 +44,5 @@ graph TD
     style UC5 fill:#fff,stroke:#002D62,stroke-width:2px
     style UC6 fill:#fff,stroke:#E31B23,stroke-width:2px
     style UC7 fill:#fff,stroke:#E31B23,stroke-width:2px
+
+```
