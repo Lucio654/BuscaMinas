@@ -37,9 +37,10 @@ graph TD
 
 ```
 ```mermaid
-
 classDiagram
-    direction BT
+    direction TD
+    
+    %% Nivel 1: Entidades Principales
     class Tecnico {
         +int tecnicoID
         +string nombreCompleto
@@ -59,6 +60,7 @@ classDiagram
         +calificarTecnico(trabajoID, puntos)
     }
 
+    %% Nivel 2: Operación
     class Trabajo {
         +int trabajoID
         +date fecha
@@ -66,6 +68,7 @@ classDiagram
         +finalizarTrabajo()
     }
 
+    %% Nivel 3: Feedback y Control
     class Calificacion {
         +int calificacionID
         +int puntaje
@@ -80,14 +83,15 @@ classDiagram
         +string cambioNuevo
     }
 
-    %% Relaciones
+    %% Relaciones Jerárquicas (Flujo de arriba hacia abajo)
     Tecnico "1" -- "*" Trabajo : realiza
     Cliente "1" -- "*" Trabajo : solicita
     Trabajo "1" -- "1" Calificacion : genera
     Calificacion ..> LogAuditoria : activa trigger
 
-
-
+    %% Conexiones invisibles para forzar el orden si GitHub lo desordena
+    Tecnico ~~~ Calificacion
+    Cliente ~~~ Calificacion
 
 
 ```
